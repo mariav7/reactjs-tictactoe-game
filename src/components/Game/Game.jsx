@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         height: '450px',
         margin: '5px auto',
     },
-    listItem: {
+    root: {
         fontSize: 18,
         padding: '12px 48px 12px 1.5rem',
         '&:before, &:after': {
@@ -29,8 +29,17 @@ const useStyles = makeStyles((theme) => ({
             width: 8,
             borderRadius: '100%',
         },
+        '&:after': {
+            left: 0,
+            top: '1.3em',
+            height: 8,
+            borderTopRightRadius: 4,
+            borderBottomRightRadius: 4,
+            transform: 'translateX(-100%)',
+        },
         '&:hover, &:focus': {
             background: 'rgba(241,222,250,0.275)',
+            //color: '#663399',
             '&:before': {
             background: '#fff',
             transform: 'scale(1)',
@@ -65,14 +74,24 @@ export const Game = () => {
     };
 
     const renderMoves = () => (
-        history.map((step, move) => {
+        history.map((_step, move) => {
             const destination = move ? `Go to move #${move}` : `Go to start`;
             return (
                 <List>
-                    <ListItem className={classes.listItem} key={move} button onClick={() => jumpTo(move)}>
+                    <ListItem className={classes.root} key={move} button onClick={() => jumpTo(move)}>
                         <ListItemText primary={destination}/>
                     </ListItem>
                 </List>
+                /* <li key={move}>
+                    <Button
+                    size='large'
+                    variant="contained" 
+                    color="secondary"
+                    onClick={() => jumpTo(move)}
+                    >
+                        {destination}
+                    </Button>
+                </li> */
             )
         })
     );
