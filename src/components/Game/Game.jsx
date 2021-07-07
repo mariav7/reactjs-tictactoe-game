@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
         },
         '&:hover, &:focus': {
             background: 'rgba(241,222,250,0.275)',
-            //color: '#663399',
             '&:before': {
             background: '#fff',
             transform: 'scale(1)',
@@ -77,21 +76,11 @@ export const Game = () => {
         history.map((_step, move) => {
             const destination = move ? `Go to move #${move}` : `Go to start`;
             return (
-                <List>
+                <List key={move}>
                     <ListItem className={classes.root} key={move} button onClick={() => jumpTo(move)}>
                         <ListItemText primary={destination}/>
                     </ListItem>
                 </List>
-                /* <li key={move}>
-                    <Button
-                    size='large'
-                    variant="contained" 
-                    color="secondary"
-                    onClick={() => jumpTo(move)}
-                    >
-                        {destination}
-                    </Button>
-                </li> */
             )
         })
     );
