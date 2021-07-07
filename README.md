@@ -2,7 +2,7 @@
 
 Based on the tutorial of [React JS](https://reactjs.org/tutorial/tutorial.html).
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-and desgined with [Material UI](https://material-ui.com/).
+and designed with [Material UI](https://material-ui.com/).
 
 ## Available Scripts
 
